@@ -11,9 +11,9 @@ import static org.junit.Assert.assertFalse;
 public class AliaserTest {
     @Test
     public void shouldReturnStringWithRemovedSpecialChars(){
-        //when
-        AliaserImpl aliaser = new AliaserImpl();
         //given
+        AliaserImpl aliaser = new AliaserImpl();
+        //when
         String stringWithSpecialChars="Wlazł kotek na płotek i mruga, " +
                 "ładna to piosenka, nie długa. Nie długa, nie krótka," +
                 " lecz w sam raz, zaśpiewaj koteczku, jeszcze raz.";
@@ -21,10 +21,24 @@ public class AliaserTest {
         assertFalse(aliaser.removeSpecialCharacters(stringWithSpecialChars).contains(","));
     }
     @Test
-    public void shouldReturnHashedMessage(){
-        //when
-        AliaserImpl aliaser= new AliaserImpl();
+    public void shouldReturnMessageFromHash(){
         //given
+        AliaserImpl aliaser= new AliaserImpl();
+        //when
+        String stringWithSpecialChars="Wlazł kotek na płotek i mruga, " +
+                "ładna to piosenka, nie długa. Nie długa, nie krótka," +
+                " lecz w sam raz, zaśpiewaj koteczku, jeszcze raz.";
+        String hashed=aliaser.getAliasedMessage(stringWithSpecialChars);
+        String hashedFull=aliaser.getOneAliasFromAliasedMessage(hashed);
+        //then
+        assertEquals(stringWithSpecialChars,aliaser.revertAlias(hashedFull));
+
+    }
+    @Test
+    public void shouldReturnHashedMessage(){
+        //given
+        AliaserImpl aliaser= new AliaserImpl();
+        //when
         String stringWithSpecialChars="Wlazł kotek na płotek i mruga, " +
                 "ładna to piosenka, nie długa. Nie długa, nie krótka," +
                 " lecz w sam raz, zaśpiewaj koteczku, jeszcze raz.";

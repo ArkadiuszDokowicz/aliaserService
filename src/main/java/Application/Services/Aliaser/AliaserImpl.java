@@ -52,17 +52,15 @@ public class AliaserImpl{
         String aliasedMessage=text;
         for(String s:words){
             countFrequencyOfAppearance(s);
-            StringBuilder hashForReplace=new StringBuilder("");
-            hashForReplace.append(getAlias(s));
-           text=text.replaceFirst(s,hashForReplace.toString());
+            text=text.replaceFirst(s, "" + getAlias(s));
         }
         return text;
     }
-    public String getOneAliasFromAliasedMessage(int id, String aliasedMessage){
-     return getAliasFromMessage(id,aliasedMessage);
+    public String getOneAliasFromAliasedMessage(String aliasedMessage){
+     return getAliasFromMessage(aliasedMessage);
     }
 
-    private synchronized String getAliasFromMessage(int id,String aliasedMessage) {
+    private synchronized String getAliasFromMessage(String aliasedMessage) {
         if(this.aliases.containsKey(aliasedMessage)){
             return aliases.get(aliasedMessage);
         }
@@ -84,7 +82,21 @@ public class AliaserImpl{
         }
     }
 
-
+    public String revertAlias(String aliasedMessage){
+        return getWords(getHashes(aliasedMessage));
+    }
+    private String getHashes(String hash){
+       return messages.get(hash);
+    }
+    private String getWords(String hashes){
+        String[] wordsSeparated= getSplitWords(hashes);
+        String aliasedMessage=hashes;
+        for(String s:wordsSeparated){
+            countFrequencyOfAppearance(s);
+            hashes=hashes.replaceFirst(s, "" + words.get(s));
+        }
+        return hashes;
+    }
     private Boolean isTheSameString(String first,String second){
         return first.equals(second);
     }

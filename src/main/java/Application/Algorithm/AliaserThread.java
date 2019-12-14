@@ -22,11 +22,12 @@ public class AliaserThread  {
     };
     public void start(){
         recipes=dataBaseApi.getRecipesForRange(firstIndex,lastIndex);
-        List<Recipe> aliasedRecipes= new ArrayList<Recipe>();
+        ArrayList<Recipe> aliasedRecipes= new ArrayList<>();
         for(Recipe r:recipes){
             String aliasedWords = aliaser.getAliasedMessage(r.getDescription());
-            String aliasedMessage =aliaser.getOneAliasFromAliasedMessage(r.getId(),aliasedWords);
+            String aliasedMessage =aliaser.getOneAliasFromAliasedMessage(aliasedWords);
                     aliasedRecipes.add(new Recipe(r.getId(),r.getName(),aliasedMessage, r.isVege()));
         }
+        RecipesBuffer.getInstance().addRecipes(aliasedRecipes);
        }
 }

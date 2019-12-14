@@ -50,7 +50,7 @@ public class MulitThreadAliaserAlgorithm {
                 });
             }
             thread_factory.shutdown();
-          //  thread_factory.awaitTermination(1, TimeUnit.DAYS);
+            thread_factory.awaitTermination(1, TimeUnit.DAYS);
 
         }
     }

@@ -2,33 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0388ead-b251-4395-ac62-ff46deacd39f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/AliaserThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/MulitThreadAliaserAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/RecipesBuffer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Controllers/FrontEnd/PageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/Alias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/DataBaseSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/DbTableSize.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/Recipe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/TestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Services/Aliaser/AliaserModel/Word.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/AdminTerminal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/AlgorithmPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ClassifyPage.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/ExpertTerminal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/NewRecipe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Controllers/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Model/AliasedObjectResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Model/AliasedObjectResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Services/Aliaser/Aliaser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Services/Aliaser/AliaserImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/AliaserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/AliaserThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/MulitThreadAliaserAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/MulitThreadAliaserAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/RecipesBuffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/RecipesBuffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Model/TestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Model/TestCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Services/Aliaser/AliaserImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Services/Aliaser/AliaserImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/Application/Services/Aliaser/AliaserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Application/Services/Aliaser/AliaserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/Controllers/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Controllers/MainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/Services/Aliaser/Aliaser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/AliaserThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/AliaserThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/MulitThreadAliaserAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/MulitThreadAliaserAlgorithm.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/RecipesBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/RecipesBuffer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Application/Services/Aliaser/AliaserImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Services/Aliaser/AliaserImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/Application/Services/Aliaser/AliaserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/Application/Services/Aliaser/AliaserTest.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -106,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.Application">
+  <component name="RunManager" selected="JUnit.AliaserTest">
     <configuration name="AliaserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AliaserPRO" />
       <extension name="coverage">
@@ -138,6 +123,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AliaserTest.shouldReturnMessageFromHash" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AliaserPRO" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Application.Services.Aliaser.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Application.Services.Aliaser" />
+      <option name="MAIN_CLASS_NAME" value="Application.Services.Aliaser.AliaserTest" />
+      <option name="METHOD_NAME" value="shouldReturnMessageFromHash" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AliaserTest.shouldReturnSimilarWordAmount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="AliaserPRO" />
       <extension name="coverage">
@@ -149,22 +150,6 @@
       <option name="PACKAGE_NAME" value="Application.Services.Aliaser" />
       <option name="MAIN_CLASS_NAME" value="Application.Services.Aliaser.AliaserTest" />
       <option name="METHOD_NAME" value="shouldReturnSimilarWordAmount" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AliaserTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="AliaserPRO" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Application.Services.Aliaser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Application.Services.Aliaser" />
-      <option name="MAIN_CLASS_NAME" value="Application.Services.Aliaser.AliaserTest" />
-      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -185,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.Application" />
         <item itemvalue="JUnit.AliaserTest" />
+        <item itemvalue="Spring Boot.Application" />
+        <item itemvalue="JUnit.AliaserTest.shouldReturnMessageFromHash" />
         <item itemvalue="JUnit.AliaserTest.shouldReturnSimilarWordAmount" />
         <item itemvalue="JUnit.AliaserTest.shouldReturnLastIndexOfObjectFromList" />
-        <item itemvalue="JUnit.AliaserTest.test" />
       </list>
     </recent_temporary>
   </component>
@@ -214,7 +199,7 @@
       <workItem from="1575633403826" duration="1736000" />
       <workItem from="1575742878406" duration="126000" />
       <workItem from="1576084301990" duration="4521000" />
-      <workItem from="1576327618110" duration="25619000" />
+      <workItem from="1576327618110" duration="28902000" />
     </task>
     <servers />
   </component>
