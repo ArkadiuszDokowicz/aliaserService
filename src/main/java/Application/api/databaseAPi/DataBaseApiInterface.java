@@ -4,11 +4,14 @@ import Application.Model.Alias;
 import Application.Model.Recipe;
 import Application.Model.TestCase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public interface DataBaseApiInterface {
 
     ArrayList<Recipe> getRecipesForRange(int first, int last);
+
+    void sendRecipes(ArrayList<Recipe> recipes);
 
     int getDataBaseTableSize(String table);
 

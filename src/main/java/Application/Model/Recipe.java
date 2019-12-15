@@ -1,6 +1,8 @@
 package Application.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -8,18 +10,18 @@ public class Recipe implements Serializable {
     private int id;
     private String name;
     private String description;
-    private boolean isVege;
+    private boolean vege;
 
-    public Recipe(String name, String description, boolean isVege) {
+    public Recipe(String name, boolean vege,String description ) {
         this.name = name;
+        this.vege = vege;
         this.description = description;
-        this.isVege = isVege;
     }
 
     public Recipe(int id, String name, String description, boolean isVege) {
         this.id = id;
         this.name = name;
-        this.isVege = isVege;
+        this.vege = isVege;
         this.description = description;
     }
 
@@ -43,11 +45,11 @@ public class Recipe implements Serializable {
     }
 
     public boolean isVege() {
-        return isVege;
+        return vege;
     }
 
     public void setVege(boolean vege) {
-        isVege = vege;
+        vege = vege;
     }
 
     public String getDescription() {
@@ -64,7 +66,7 @@ public class Recipe implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", isVege=" + isVege +
+                ", isVege=" + vege +
                 '}';
     }
 }

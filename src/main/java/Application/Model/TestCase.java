@@ -27,6 +27,15 @@ public class TestCase implements Serializable {
         this.rightDescription = rightDescription;
     }
 
+    public TestCase(int leftId, String leftAlias, String leftDescription, int rightId, String rightAlias, String rightDescription) {
+        this.leftId = leftId;
+        this.leftAlias = leftAlias;
+        this.leftDescription = leftDescription;
+        this.rightId = rightId;
+        this.rightAlias = rightAlias;
+        this.rightDescription = rightDescription;
+    }
+
     public int getId() {
         return id;
     }

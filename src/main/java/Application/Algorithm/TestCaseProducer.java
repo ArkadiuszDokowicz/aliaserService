@@ -2,6 +2,8 @@ package Application.Algorithm;
 
 import Application.Model.TestCase;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class TestCaseProducer{
     private int dbSize;
@@ -14,6 +16,7 @@ public class TestCaseProducer{
 
     public TestCaseProducer(int dbSize) {
         this.dbSize = dbSize;
+        this.createPossiblyTestCases();
     }
 
     protected void createPossiblyTestCases(){

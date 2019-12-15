@@ -26,7 +26,14 @@ public class RecipesBuffer {
     protected synchronized ArrayList<Recipe> getRecipes(){
         return allRecipesHashed;
     }
-
+    protected synchronized Recipe getRecipeById(int requested){
+        for(Recipe r: getRecipes()){
+            if(r.getId()==requested){
+                return r;
+            }
+        }
+        return null;
+    }
     public ArrayList<Recipe> getAllRecipesHashed() {
         return allRecipesHashed;
     }

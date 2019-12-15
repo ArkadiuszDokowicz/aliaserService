@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.xml.ws.Response;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +23,8 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     private final String GET_RANGE_RECIPES = "recipe";
     private final String GET_TABLE_SIZE = "recipe/count";
     private final String ADD_RECIPE = "recipe/body";
+    private final String ADD_ALL_ALIASES = "alias/all";
+    private final String ADD_ALL_RECIPES= "recipe/replace";
     @Override
     public ArrayList<Recipe> getRecipesForRange(int first, int last) {
         RestTemplate restTemplate = new RestTemplate();
@@ -34,6 +37,19 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
         ArrayList<Recipe> recipes = (ArrayList<Recipe>) rateResponse.getBody();
 
         return  recipes;
+    }
+
+    @Override
+    public void sendRecipes(ArrayList<Recipe> recipes) {
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForObject(
+                    DATA_BASE_URL + ADD_ALL_RECIPES,
+                    recipes,
+                    ResponseEntity.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -52,6 +68,15 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     @Override
     public void sendAliases(ArrayList<Alias> aliases) {
 
+        try {
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForObject(
+                    DATA_BASE_URL + ADD_ALL_ALIASES,
+                    aliases,
+                    ResponseEntity.class);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -73,9 +98,10 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
 
     @Override
     public void addRecipe(String name,String description,Boolean isVege) {
-        RestTemplate restTemplate = new RestTemplate();
-        HttpEntity<Recipe> request = new HttpEntity<>(new Recipe(name,description,isVege));
-        Recipe recipeFromDB = restTemplate.postForObject(DATA_BASE_URL+ADD_RECIPE,request,Recipe.class);
 
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<Recipe> request = new HttpEntity<>(new Recipe(name,isVege,description));
+        Recipe recipeFromDB = restTemplate.postForObject(DATA_BASE_URL+ADD_RECIPE,request,Recipe.class);
+        //recipeFromDB.isVege();
     }
 }

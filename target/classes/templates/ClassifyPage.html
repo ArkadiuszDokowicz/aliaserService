@@ -11,24 +11,24 @@
     <table>
         <tr>
             <td><textarea rows="1" cols="50" th:text="${name1}"> </textarea></td>
-            <td><textarea rows="1" cols="50" th:text="${description1}"> </textarea></td>
+            <td><textarea rows="1" cols="50" th:text="${name2}"> </textarea></td>
         </tr>
         <tr>
-            <td><textarea rows="10" cols="50" name="d1"> </textarea></td>
-            <td><textarea rows="10" cols="50" name="d2"> </textarea></td>
+            <td><textarea rows="10" cols="50" th:text="${description1}"> </textarea></td>
+            <td><textarea rows="10" cols="50" th:text="${description2}"> </textarea></td>
         </tr>
 
         <tr>
             <td>
-
-                <form action="same">
-                    <button class="mybutton" type="submit" ></button>
+//TODO
+                <form action="expertAnswerTrue" method="post">
+                    <input class="mybutton" type="submit" value="Submit">
                 </form>
             </td>
 
             <td>
-                <form action="diff">
-                    <button class="mybutton" type="submit">
+                <form action="expertAnswerFalse">
+                    <input class="mybutton" type="submit" value="Submit">
                     </button>
                 </form>
             </td>
