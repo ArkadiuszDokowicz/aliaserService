@@ -26,4 +26,9 @@ public class RecipesBuffer {
     protected synchronized ArrayList<Recipe> getRecipes(){
         return allRecipesHashed;
     }
+
+    public ArrayList<Recipe> getAllRecipesHashed() {
+        return allRecipesHashed;
+    }
+
 }

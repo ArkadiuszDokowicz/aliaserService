@@ -48,7 +48,7 @@ public class PageController {
     @GetMapping("StartWorking")
     public String getAlgorithmPage() throws InterruptedException {
         MulitThreadAliaserAlgorithm algorithm = new MulitThreadAliaserAlgorithm(aliaser);
-        algorithm.runAlgorithm();
+        algorithm.startThreads();
         return "AlgorithmPage";
     }
 

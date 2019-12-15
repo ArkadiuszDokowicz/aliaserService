@@ -12,6 +12,11 @@ public class TestCase implements Serializable {
     private String rightDescription;
     private int status =0;
 
+    public TestCase(int leftId, int rightId) {
+        this.leftId = leftId;
+        this.rightId = rightId;
+    }
+
     public TestCase(int id, int leftId, String leftAlias, String leftDescription, int rightId, String rightAlias, String rightDescription) {
         this.id = id;
         this.leftId = leftId;

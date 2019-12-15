@@ -16,7 +16,7 @@ public class MulitThreadAliaserAlgorithm {
     }
     DataBaseApiImpl dataBaseApi = new DataBaseApiImpl();
     private int dbTableSize=0;
-    public void runAlgorithm() throws InterruptedException {
+    public void startThreads() throws InterruptedException {
         dbTableSize=dataBaseApi.getDataBaseTableSize("recipe");
         if(dbTableSize!=0 && dbTableSize>100){
             int period = (int) Math.floor(dbTableSize/4);

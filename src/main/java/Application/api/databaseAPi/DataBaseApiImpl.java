@@ -14,7 +14,9 @@ import java.util.Objects;
 @Service
 public class DataBaseApiImpl implements DataBaseApiInterface {
     private final String PASSWORD = "maslo123";
-    private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
+    //private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
+    private final String DATA_BASE_URL = "http://localhost:8080";
+
     private final String GET_ALL_RECIPES = "recipe/all";
     private final String GET_RANGE_RECIPES = "recipe";
     private final String GET_TABLE_SIZE = "recipe/count";
