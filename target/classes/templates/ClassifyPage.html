@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -10,8 +10,8 @@
     <h2>Decide whether the descriptions are the same:</font></h2>
     <table>
         <tr>
-            <td><textarea rows="1" cols="50" name="n1"> </textarea></td>
-            <td><textarea rows="1" cols="50" name="n2"> </textarea></td>
+            <td><textarea rows="1" cols="50" th:text="${name1}"> </textarea></td>
+            <td><textarea rows="1" cols="50" th:text="${description1}"> </textarea></td>
         </tr>
         <tr>
             <td><textarea rows="10" cols="50" name="d1"> </textarea></td>

@@ -2,6 +2,7 @@ package Application.api.databaseAPi;
 
 import Application.Model.*;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,13 +15,13 @@ import java.util.Objects;
 @Service
 public class DataBaseApiImpl implements DataBaseApiInterface {
     private final String PASSWORD = "maslo123";
-    //private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
-    private final String DATA_BASE_URL = "http://localhost:8080";
+    private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
+   // private final String DATA_BASE_URL = "http://localhost:8080";
 
     private final String GET_ALL_RECIPES = "recipe/all";
     private final String GET_RANGE_RECIPES = "recipe";
     private final String GET_TABLE_SIZE = "recipe/count";
-
+    private final String ADD_RECIPE = "recipe/body";
     @Override
     public ArrayList<Recipe> getRecipesForRange(int first, int last) {
         RestTemplate restTemplate = new RestTemplate();
@@ -67,6 +68,14 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
                         HttpMethod.GET, null, new ParameterizedTypeReference<DataBaseSize>() {
                         });
         return Objects.requireNonNull(response.getBody()).getSize();
+
+    }
+
+    @Override
+    public void addRecipe(String name,String description,Boolean isVege) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<Recipe> request = new HttpEntity<>(new Recipe(name,description,isVege));
+        Recipe recipeFromDB = restTemplate.postForObject(DATA_BASE_URL+ADD_RECIPE,request,Recipe.class);
 
     }
 }

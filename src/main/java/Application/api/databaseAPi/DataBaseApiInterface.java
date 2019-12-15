@@ -18,4 +18,5 @@ public interface DataBaseApiInterface {
 
     int getDateBaseMemorySize();
 
+    void addRecipe(String name, String description, Boolean isVege);
 }

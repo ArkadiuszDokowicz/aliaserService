@@ -6,7 +6,7 @@
 </head>
 <body style="background-color:#666699;">
 <h1><font face="helvetica" color="ffffff">Enter the recipe</font></h1>
-<form action="done">
+<form action="addRecipeToBase" method="POST">
     <table>
         <tr><td><input type="text" id="name" name="name" placeholder="Name..">
             <input type="checkbox" name="vege" value="true"><font face="helvetica" color="ffffff">Vegetarian</font><br></td>
@@ -16,7 +16,7 @@
             <td><textarea id="recipe" name="recipe" placeholder="Recipe.." style="height:300px; width:512px"></textarea><br></td>
         </tr>
     </table>
-    <button class="mybutton" type="submit">Add</button>
+    <input class="mybutton" type="submit" value="Submit">
 </form>
 <a href="/" class="mybutton">Home</a>
 </body>
