@@ -32,7 +32,7 @@ public class TestCaseAlgorithm {
             thread_factory.submit(new Runnable() {
                 @Override
                 public void run() {
-                    new AliaserThread(testcases).start2();
+               //     new AliaserThread(testcases).start2();
                 }
             });
         }

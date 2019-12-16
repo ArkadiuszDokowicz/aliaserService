@@ -10,27 +10,32 @@ public class TestCaseThread   {
     private AliaserImpl aliaser;
     private ArrayList<TestCase> testCases;
     private ArrayList<TestCase> checkedTestCases = new ArrayList<>();
+    private RecipesBuffer recipesBuffer =RecipesBuffer.getInstance();
     public TestCaseThread(AliaserImpl aliaser, ArrayList<TestCase> testCases) {
         this.testCases = testCases;
         this.aliaser=aliaser;
     }
 
     public void start() {
-        for(TestCase testCase: testCases){
-            Recipe left=RecipesBuffer.getInstance().getRecipeById(testCase.getLeftId());
-            Recipe right=RecipesBuffer.getInstance().getRecipeById(testCase.getRightId());
-            int leftWordAmount=0,rightWordAmount=0;
-            leftWordAmount=getSplitWords(left.getDescription()).length;
-            rightWordAmount=getSplitWords(right.getDescription()).length;
-            if(leftWordAmount == rightWordAmount){
-                if(aliaser.getSimilarWordsAmount(left.getDescription(),right.getDescription())==leftWordAmount-1){
-                    checkedTestCases.add(new TestCase(left.getId(),left.getDescription(),aliaser.revertAlias(left.getDescription()),
-                            right.getId(),right.getDescription(),aliaser.revertAlias(right.getDescription())));
+        for(TestCase testCase:testCases){
+            int idL=testCase.getLeftId();
+            int idR=testCase.getRightId();
+            try{
+                Recipe left = recipesBuffer.getRecipeById(idL);
+                 Recipe right = recipesBuffer.getRecipeById(idR);
+            int leftLength=aliaser.getSplitWords(left.getDescription()).length;
+            int rightLength=aliaser.getSplitWords(right.getDescription()).length;
+            if(leftLength==rightLength){
+                if(leftLength==aliaser.getSimilarWordsAmount(left.getDescription(),right.getDescription())){
+                    this.checkedTestCases.add(new TestCase(
+                            left.getId(),aliaser.getAliasedMessage(left.getDescription()),left.getDescription(),
+                            right.getId(),aliaser.getAliasedMessage(right.getDescription()),right.getDescription()
+                            ));
                 }
             }
-        }
-        if(this.checkedTestCases.size()>0) {
-            TestCasesBuffer.getInstance().addTestCases(checkedTestCases);
+        }catch (Exception e){
+                e.printStackTrace();
+            }
         }
     }
 

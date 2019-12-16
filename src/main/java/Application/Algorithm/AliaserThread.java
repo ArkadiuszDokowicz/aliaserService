@@ -36,6 +36,7 @@ public class AliaserThread  {
 
     public void start(){
         recipes=dataBaseApi.getRecipesForRange(firstIndex,lastIndex);
+        RecipesBuffer.getInstance().addNotHashedRecipes(recipes);
         ArrayList<Recipe> aliasedRecipes= new ArrayList<>();
         for(Recipe r:recipes){
             String aliasedWords = aliaser.getAliasedMessage(r.getDescription());
@@ -45,7 +46,7 @@ public class AliaserThread  {
         RecipesBuffer.getInstance().addRecipes(aliasedRecipes);
        }
 
-    public void start2() {
+    public void start2() throws Exception {
         System.out.println("method2");
         for(TestCase testCase: testCases){
             Recipe left=RecipesBuffer.getInstance().getRecipeById(testCase.getLeftId());

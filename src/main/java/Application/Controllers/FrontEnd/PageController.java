@@ -59,6 +59,7 @@ public class PageController {
     @GetMapping("StartWorking")
     public String getAlgorithmPage() throws InterruptedException {
 
+        //aliasing
         MulitThreadAliaserAlgorithm algorithm = new MulitThreadAliaserAlgorithm(aliaser,4);
         long start = System.nanoTime();
         algorithm.startAliaserThreads();
@@ -67,6 +68,10 @@ public class PageController {
         ArrayList<Alias> aliases=aliaser.getAliasesAsArrayList();
         dataBaseApi.sendAliases(aliases);
         dataBaseApi.sendRecipes(RecipesBuffer.getInstance().getAllRecipesHashed());
+       //testcases
+        TestCaseProducer testCaseProducer = new TestCaseProducer(dataBaseApi.getDataBaseTableSize("recipe"));
+        TestCaseThread testCaseThread = new TestCaseThread(aliaser,testCaseProducer.getTestCases());
+        testCaseThread.start();
         /*
         MulitThreadAliaserAlgorithm algorithm2= new MulitThreadAliaserAlgorithm(aliaser,4);
          start = System.nanoTime();

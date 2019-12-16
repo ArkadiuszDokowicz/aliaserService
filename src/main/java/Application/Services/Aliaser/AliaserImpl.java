@@ -149,7 +149,7 @@ public class AliaserImpl{
         }
         return stringsToReturn;
     }
-    private String[] getSplitWords(String s){
+    public String[] getSplitWords(String s){
         String removedSpecialChars = removeSpecialCharacters(s);
         return removedSpecialChars.split(" ");
     }

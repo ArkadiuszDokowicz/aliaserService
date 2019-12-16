@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class TestCasesBuffer {
     private ArrayList<TestCase> testCases = new ArrayList<>();
     private ArrayList<TestCase> goodTestCases= new ArrayList<>();
+    private ArrayList<TestCase> checkedTestCases = new ArrayList<>();
     private static TestCasesBuffer single_instance = null;
 
     private TestCasesBuffer(){}
