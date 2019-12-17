@@ -27,7 +27,6 @@ public class Recipe implements Serializable {
 
     public Recipe() {
     }
-
     public int getId() {
         return id;
     }

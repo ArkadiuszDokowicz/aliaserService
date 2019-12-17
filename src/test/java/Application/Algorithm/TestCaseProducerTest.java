@@ -13,8 +13,6 @@ public class TestCaseProducerTest {
         testCaseProducer = new TestCaseProducer(dbSize);
         testCaseProducer.createPossiblyTestCases();
         //then
-        System.out.println(testCaseProducer.getTestCases().size());
-        System.out.println(testCaseProducer.toString());
-    }
+        }
 
 }

@@ -7,6 +7,8 @@ import Application.Services.Aliaser.AliaserImpl;
 import java.util.ArrayList;
 
 public class TestCaseThread   {
+
+    private final double TOLERANCE = 0.10;
     private AliaserImpl aliaser;
     private ArrayList<TestCase> testCases;
     private ArrayList<TestCase> checkedTestCases = new ArrayList<>();
@@ -16,7 +18,9 @@ public class TestCaseThread   {
         this.aliaser=aliaser;
     }
 
+
     public void start() {
+        System.out.println(testCases);
         for(TestCase testCase:testCases){
             int idL=testCase.getLeftId();
             int idR=testCase.getRightId();
@@ -26,15 +30,17 @@ public class TestCaseThread   {
             int leftLength=aliaser.getSplitWords(left.getDescription()).length;
             int rightLength=aliaser.getSplitWords(right.getDescription()).length;
             if(leftLength==rightLength){
-                if(leftLength==aliaser.getSimilarWordsAmount(left.getDescription(),right.getDescription())){
+                int similarWords = aliaser.getSimilarWordsAmount(left.getDescription(),right.getDescription());
+                int difference = leftLength - similarWords;
+                if(difference<=Math.round(leftLength*TOLERANCE)){
                     this.checkedTestCases.add(new TestCase(
-                            left.getId(),aliaser.getAliasedMessage(left.getDescription()),left.getDescription(),
-                            right.getId(),aliaser.getAliasedMessage(right.getDescription()),right.getDescription()
+                            left.getId(),aliaser.getOneAliasFromAliasedMessage(left.getDescription()),left.getDescription(),
+                            right.getId(),aliaser.getOneAliasFromAliasedMessage(right.getDescription()),right.getDescription()
                             ));
                 }
             }
-        }catch (Exception e){
-                e.printStackTrace();
+            }catch (Exception e){
+                    e.printStackTrace();
             }
         }
     }
@@ -50,4 +56,7 @@ public class TestCaseThread   {
 
     }
 
+    public ArrayList<TestCase> getCheckedTestCases() {
+        return checkedTestCases;
+    }
 }

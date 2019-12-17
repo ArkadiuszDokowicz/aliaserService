@@ -15,6 +15,7 @@ import java.util.Objects;
 
 @Service
 public class DataBaseApiImpl implements DataBaseApiInterface {
+
     private final String PASSWORD = "maslo123";
     private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
    // private final String DATA_BASE_URL = "http://localhost:8080";
@@ -25,6 +26,12 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     private final String ADD_RECIPE = "recipe/body";
     private final String ADD_ALL_ALIASES = "alias/all";
     private final String ADD_ALL_RECIPES= "recipe/replace";
+    private static final String GET_TEST_CASE = "testcase";
+    private final String ADD_ALL_TESTCASES="testcase/all";
+    private final String ADD_TEST_CASE="testcase";
+    private final String DELETE_ALIAS = "alias/delete/";
+    private final String RECIPE_UPDATE= "recipe/replace";
+
     @Override
     public ArrayList<Recipe> getRecipesForRange(int first, int last) {
         RestTemplate restTemplate = new RestTemplate();
@@ -39,12 +46,15 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
         return  recipes;
     }
 
+
     @Override
     public void sendRecipes(ArrayList<Recipe> recipes) {
         try {
+            String url =DATA_BASE_URL + ADD_ALL_RECIPES;
+            System.out.println(url);
             RestTemplate restTemplate = new RestTemplate();
             restTemplate.postForObject(
-                    DATA_BASE_URL + ADD_ALL_RECIPES,
+                    url,
                     recipes,
                     ResponseEntity.class);
         }catch (Exception e){
@@ -67,11 +77,11 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
 
     @Override
     public void sendAliases(ArrayList<Alias> aliases) {
-
-        try {
+         String url = DATA_BASE_URL + ADD_ALL_ALIASES;
+         System.out.println(url);
+         try {
             RestTemplate restTemplate = new RestTemplate();
-            restTemplate.postForObject(
-                    DATA_BASE_URL + ADD_ALL_ALIASES,
+            restTemplate.postForObject(url,
                     aliases,
                     ResponseEntity.class);
         }catch (Exception e){
@@ -81,7 +91,17 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
 
     @Override
     public void sendTestCases(ArrayList<TestCase> testCases) {
-
+        try {
+            String url = DATA_BASE_URL + ADD_ALL_TESTCASES;
+            RestTemplate restTemplate = new RestTemplate();
+            restTemplate.postForObject(
+                    url,
+                    testCases,
+                    ResponseEntity.class);
+            System.out.println(url);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -97,6 +117,16 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     }
 
     @Override
+    public TestCase getTestCase() {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = DATA_BASE_URL + GET_TEST_CASE;
+        System.out.println(url);
+        TestCase testcase = restTemplate
+                .getForObject(url, TestCase.class);
+        return testcase;
+    }
+
+    @Override
     public void addRecipe(String name,String description,Boolean isVege) {
 
         RestTemplate restTemplate = new RestTemplate();
@@ -104,4 +134,25 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
         Recipe recipeFromDB = restTemplate.postForObject(DATA_BASE_URL+ADD_RECIPE,request,Recipe.class);
         //recipeFromDB.isVege();
     }
+
+    @Override
+    public void sendTestCase(TestCase testCase) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<TestCase> request = new HttpEntity<>(testCase);
+        restTemplate.put(DATA_BASE_URL+ADD_TEST_CASE,request);
+    }
+
+    @Override
+    public void deleteAlias(String alias) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.put(DATA_BASE_URL+DELETE_ALIAS+"?alias="+alias,"");
+    }
+
+    @Override
+    public void updateRecipe(int id, String alias) {
+        RestTemplate restTemplate = new RestTemplate();
+        String result = restTemplate.getForObject(DATA_BASE_URL+RECIPE_UPDATE+"?id="+id+"&alias="+alias, String.class);
+
+    }
+
 }

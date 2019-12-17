@@ -5,6 +5,7 @@ import Application.Model.Alias;
 import Application.Model.Recipe;
 import Application.Model.TestCase;
 import Application.Services.Aliaser.AliaserImpl;
+import Application.Services.TestCaseService;
 import Application.api.databaseAPi.DataBaseApiImpl;
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ import java.util.List;
 @RequestMapping("")
 public class PageController {
 
+    @Autowired
+    TestCaseService testCaseService;
     @Autowired
     AliaserImpl aliaser;
     @Autowired
@@ -49,49 +52,78 @@ public class PageController {
     }
         @GetMapping("getClassifyPage")
     public String getClassifyPage(Model model){
+            //TODO uncomment
+        TestCase testCase = dataBaseApi.getTestCase();
+            testCaseService.setTestCase(testCase);
+            if(testCase!=null){
 
-        model.addAttribute("name1","name1 z uslugi");
-        model.addAttribute("description1","description1 z usługi ");
-        model.addAttribute("name2","name2 z uslugi");
-        model.addAttribute("description2","description2 z usługi ");
+        }
+        model.addAttribute("name1",testCase.getLeftId());
+        model.addAttribute("description1",testCase.getLeftDescription());
+        model.addAttribute("name2",testCase.getRightId());
+        model.addAttribute("description2",testCase.getRightDescription());
+
         return "ClassifyPage";
     }
-    @GetMapping("StartWorking")
+
+    @PostMapping("expertAnswerLeft")
+        public String sendPositiveAnswerForLeft(){
+        TestCase testCase = testCaseService.getTestCase();
+        testCase.setStatus(2);
+        dataBaseApi.sendTestCase(testCase);
+        dataBaseApi.deleteAlias(testCase.getLeftAlias());
+        dataBaseApi.updateRecipe(testCase.getRightId(),testCase.getLeftAlias());
+        return "ExpertTerminal";
+        }
+    @PostMapping("expertAnswerRight")
+    public String sendPositiveAnswerForRight(){
+        System.out.println(testCaseService.getTestCase().getRightId());
+        TestCase testCase = testCaseService.getTestCase();
+        testCase.setStatus(2);
+        dataBaseApi.sendTestCase(testCase);
+        dataBaseApi.deleteAlias(testCase.getLeftAlias());
+        dataBaseApi.updateRecipe(testCase.getLeftId(),testCase.getRightAlias());
+        return "ExpertTerminal";
+    }
+
+
+    @PostMapping("expertAnswerFalse")
+    public String sendNegativeAnswer(){
+        TestCase testCase = testCaseService.getTestCase();
+        testCase.setStatus(2);
+        dataBaseApi.sendTestCase(testCase);
+        return "ExpertTerminal";
+    }
+
+
+
+        @GetMapping("StartWorking")
     public String getAlgorithmPage() throws InterruptedException {
 
         //aliasing
         MulitThreadAliaserAlgorithm algorithm = new MulitThreadAliaserAlgorithm(aliaser,4);
         long start = System.nanoTime();
-        algorithm.startAliaserThreads();
-        long elapsedTime = System.nanoTime() - start;
-        System.out.println(elapsedTime);
-        ArrayList<Alias> aliases=aliaser.getAliasesAsArrayList();
-        dataBaseApi.sendAliases(aliases);
-        dataBaseApi.sendRecipes(RecipesBuffer.getInstance().getAllRecipesHashed());
-       //testcases
-        TestCaseProducer testCaseProducer = new TestCaseProducer(dataBaseApi.getDataBaseTableSize("recipe"));
-        TestCaseThread testCaseThread = new TestCaseThread(aliaser,testCaseProducer.getTestCases());
-        testCaseThread.start();
-        /*
-        MulitThreadAliaserAlgorithm algorithm2= new MulitThreadAliaserAlgorithm(aliaser,4);
-         start = System.nanoTime();
-        algorithm2.startAliaserThreads();
-        elapsedTime = System.nanoTime() - start;
-        System.out.println(elapsedTime);
-        aliases=aliaser.getAliasesAsArrayList();
-        dataBaseApi.sendAliases(aliases);
-        dataBaseApi.sendRecipes(RecipesBuffer.getInstance().getAllRecipesHashed());
+            try {
+                algorithm.startAliaserThreads();
+                ArrayList<Alias> aliases=aliaser.getAliasesAsArrayList();
 
-        /*
-        TestCaseProducer testCaseProducer = new TestCaseProducer(dataBaseApi.getDataBaseTableSize("recipe"));
-        //System.out.println(testCaseProducer.getTestCases().size());
-        int singleListSize =Math.round(testCaseProducer.getTestCases().size()/4)+1;
-        List<List<TestCase>> testCases= Lists.partition(testCaseProducer.getTestCases(),singleListSize);
+                dataBaseApi.sendAliases(aliases);
+                dataBaseApi.sendRecipes(RecipesBuffer.getInstance().getAllRecipesHashed());
+                generateTestCase();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        return "AlgorithmPage";
+
+    }
+    private void generateTestCase(){
+        TestCaseProducer testCaseProducer = new TestCaseProducer(RecipesBuffer.getInstance().allRecipesNotHashed.size());
         TestCaseThread testCaseThread = new TestCaseThread(aliaser,testCaseProducer.getTestCases());
         testCaseThread.start();
-        System.out.println(TestCasesBuffer.getInstance().getTestCases().size());
-        */
-        return "AlgorithmPage";
+        if(testCaseThread.getCheckedTestCases().size()>0){
+            dataBaseApi.sendTestCases(testCaseThread.getCheckedTestCases());
+        }
 
     }
 

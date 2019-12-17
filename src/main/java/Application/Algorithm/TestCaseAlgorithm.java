@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-
+@Deprecated
 public class TestCaseAlgorithm {
     private static final int THREADS_AMOUNT = 4 ;
     private AliaserImpl aliaser;

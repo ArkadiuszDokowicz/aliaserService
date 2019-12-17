@@ -21,5 +21,13 @@ public interface DataBaseApiInterface {
 
     int getDateBaseMemorySize();
 
+    TestCase getTestCase();
+
     void addRecipe(String name, String description, Boolean isVege);
+
+    void sendTestCase(TestCase testCase);
+
+    void deleteAlias(String alias);
+
+    void updateRecipe(int id,String alias);
 }

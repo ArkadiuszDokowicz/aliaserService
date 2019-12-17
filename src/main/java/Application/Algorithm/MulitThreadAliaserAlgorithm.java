@@ -21,7 +21,7 @@ public class MulitThreadAliaserAlgorithm {
     }
     DataBaseApiImpl dataBaseApi = new DataBaseApiImpl();
     private int dbTableSize=0;
-    public void startAliaserThreads() throws InterruptedException {
+    public void startAliaserThreads() throws Exception {
         dbTableSize=dataBaseApi.getDataBaseTableSize("recipe");
         if(dbTableSize!=0 && dbTableSize>100){
             int period = (int) Math.floor(dbTableSize/THREADS_AMOUNT);
@@ -46,7 +46,7 @@ public class MulitThreadAliaserAlgorithm {
 
                 int finalFirst = first;
                 int finalLast = last;
-                System.out.println(finalFirst + " " + finalLast);
+                //System.out.println(finalFirst + " " + finalLast);
                 thread_factory.submit(new Runnable() {
                     @Override
                     public void run() {
@@ -57,6 +57,9 @@ public class MulitThreadAliaserAlgorithm {
             thread_factory.shutdown();
             thread_factory.awaitTermination(1, TimeUnit.DAYS);
 
+        }else{
+            throw new Exception("DataBase has less than 100 records");
         }
+
     }
 }
