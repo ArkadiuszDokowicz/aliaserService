@@ -2,34 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f0388ead-b251-4395-ac62-ff46deacd39f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Model/DbTestCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Application/Services/TestCaseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/Application/Algorithm/TestCaseThreadTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/MulitThreadAliaserAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/MulitThreadAliaserAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/AliaserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/AliaserThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application/Controllers/FrontEnd/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Controllers/FrontEnd/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Model/Recipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Model/Recipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/Model/TestCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/Model/TestCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/ClassifyPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/ClassifyPage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Application/Algorithm/TestCaseProducerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Application/Algorithm/TestCaseProducerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/AliaserThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/AliaserThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/MulitThreadAliaserAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/MulitThreadAliaserAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/TestCaseAlgorithm.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/TestCaseAlgorithm.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Application/Algorithm/TestCaseThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Algorithm/TestCaseThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Application/Controllers/FrontEnd/PageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Controllers/FrontEnd/PageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/Model/Recipe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Model/Recipe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/Model/TestCase.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/Model/TestCase.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Application/api/databaseAPi/DataBaseApiInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/ClassifyPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/ClassifyPage.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -235,7 +218,7 @@
       <workItem from="1576513201963" duration="4134000" />
       <workItem from="1576519411200" duration="398000" />
       <workItem from="1576586662608" duration="105000" />
-      <workItem from="1576599703813" duration="15079000" />
+      <workItem from="1576599703813" duration="17338000" />
     </task>
     <servers />
   </component>
@@ -264,14 +247,19 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Application/Controllers/FrontEnd/PageController.java</url>
-          <line>123</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Application/Algorithm/TestCaseThread.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="56" />
+          <url>file://$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java</url>
+          <line>156</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Application/api/databaseAPi/DataBaseApiImpl.java</url>
+          <line>157</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

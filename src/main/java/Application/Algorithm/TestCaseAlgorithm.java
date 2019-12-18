@@ -39,7 +39,7 @@ public class TestCaseAlgorithm {
         thread_factory.shutdown();
         thread_factory.awaitTermination(1, TimeUnit.DAYS);
 
-        System.out.println(TestCasesBuffer.getInstance().getTestCases().size());;
+        //System.out.println(TestCasesBuffer.getInstance().getTestCases().size());;
 
 
     }

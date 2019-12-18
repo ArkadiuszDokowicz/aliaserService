@@ -77,7 +77,7 @@ public class PageController {
         }
     @PostMapping("expertAnswerRight")
     public String sendPositiveAnswerForRight(){
-        System.out.println(testCaseService.getTestCase().getRightId());
+       // System.out.println(testCaseService.getTestCase().getRightId());
         TestCase testCase = testCaseService.getTestCase();
         testCase.setStatus(2);
         dataBaseApi.sendTestCase(testCase);

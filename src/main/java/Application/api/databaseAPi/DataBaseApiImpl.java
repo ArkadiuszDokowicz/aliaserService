@@ -29,8 +29,8 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     private static final String GET_TEST_CASE = "testcase";
     private final String ADD_ALL_TESTCASES="testcase/all";
     private final String ADD_TEST_CASE="testcase";
-    private final String DELETE_ALIAS = "alias/delete/";
-    private final String RECIPE_UPDATE= "recipe/replace";
+    private final String DELETE_ALIAS = "alias/delete";
+    private final String RECIPE_UPDATE= "recipe/update";
 
     @Override
     public ArrayList<Recipe> getRecipesForRange(int first, int last) {
@@ -144,14 +144,18 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
 
     @Override
     public void deleteAlias(String alias) {
+        String url=DATA_BASE_URL+DELETE_ALIAS+"?alias="+alias;
+
         RestTemplate restTemplate = new RestTemplate();
-        restTemplate.put(DATA_BASE_URL+DELETE_ALIAS+"?alias="+alias,"");
+        restTemplate.put(url,"");
+
     }
 
     @Override
     public void updateRecipe(int id, String alias) {
         RestTemplate restTemplate = new RestTemplate();
-        String result = restTemplate.getForObject(DATA_BASE_URL+RECIPE_UPDATE+"?id="+id+"&alias="+alias, String.class);
+        alias=alias.replace("#","");
+        restTemplate.put(DATA_BASE_URL+RECIPE_UPDATE+"?id="+id+"&alias="+alias, String.class);
 
     }
 

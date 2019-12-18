@@ -20,7 +20,7 @@ public class TestCaseThread   {
 
 
     public void start() {
-        System.out.println(testCases);
+        //System.out.println(testCases);
         for(TestCase testCase:testCases){
             int idL=testCase.getLeftId();
             int idR=testCase.getRightId();

@@ -47,7 +47,7 @@ public class AliaserThread  {
        }
 
     public void start2() throws Exception {
-        System.out.println("method2");
+        //System.out.println("method2");
         for(TestCase testCase: testCases){
             Recipe left=RecipesBuffer.getInstance().getRecipeById(testCase.getLeftId());
             Recipe right=RecipesBuffer.getInstance().getRecipeById(testCase.getRightId());
