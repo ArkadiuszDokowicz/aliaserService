@@ -17,7 +17,7 @@ import java.util.Objects;
 public class DataBaseApiImpl implements DataBaseApiInterface {
 
     private final String PASSWORD = "maslo123";
-    private final String DATA_BASE_URL = "http://192.168.1.70:8080/";
+    private final String DATA_BASE_URL = "http://192.168.43.195:8080/";
    // private final String DATA_BASE_URL = "http://localhost:8080";
 
     private final String GET_ALL_RECIPES = "recipe/all";
@@ -31,6 +31,7 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     private final String ADD_TEST_CASE="testcase";
     private final String DELETE_ALIAS = "alias/delete";
     private final String RECIPE_UPDATE= "recipe/update";
+    private final String RECIPE_UPDATE_2="recipe/update/v2";
 
     @Override
     public ArrayList<Recipe> getRecipesForRange(int first, int last) {
@@ -152,10 +153,10 @@ public class DataBaseApiImpl implements DataBaseApiInterface {
     }
 
     @Override
-    public void updateRecipe(int id, String alias) {
+    public void updateRecipe(int idGood, int idWrong) {
         RestTemplate restTemplate = new RestTemplate();
-        alias=alias.replace("#","");
-        restTemplate.put(DATA_BASE_URL+RECIPE_UPDATE+"?id="+id+"&alias="+alias, String.class);
+
+        restTemplate.put(DATA_BASE_URL+RECIPE_UPDATE_2+"?correctId="+idGood+"&wrongId="+idWrong, String.class);
 
     }
 

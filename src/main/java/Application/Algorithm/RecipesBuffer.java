@@ -25,7 +25,7 @@ public class RecipesBuffer {
         if(allRecipesNotHashed.containsKey(id)){
             return allRecipesNotHashed.get(id);
         }
-        else throw new Exception("No recipe with required id");
+        else throw new Exception("No recipe with required id: "+id);
 
     }
     public static RecipesBuffer getInstance()

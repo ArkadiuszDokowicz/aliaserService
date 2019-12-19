@@ -72,7 +72,7 @@ public class PageController {
         testCase.setStatus(2);
         dataBaseApi.sendTestCase(testCase);
         dataBaseApi.deleteAlias(testCase.getLeftAlias());
-        dataBaseApi.updateRecipe(testCase.getRightId(),testCase.getLeftAlias());
+        dataBaseApi.updateRecipe(testCase.getLeftId(),testCase.getRightId());
         return "ExpertTerminal";
         }
     @PostMapping("expertAnswerRight")
@@ -82,7 +82,7 @@ public class PageController {
         testCase.setStatus(2);
         dataBaseApi.sendTestCase(testCase);
         dataBaseApi.deleteAlias(testCase.getLeftAlias());
-        dataBaseApi.updateRecipe(testCase.getLeftId(),testCase.getRightAlias());
+        dataBaseApi.updateRecipe(testCase.getRightId(),testCase.getLeftId());
         return "ExpertTerminal";
     }
 

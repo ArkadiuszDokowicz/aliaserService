@@ -29,5 +29,5 @@ public interface DataBaseApiInterface {
 
     void deleteAlias(String alias);
 
-    void updateRecipe(int id,String alias);
+    void updateRecipe(int idGood,int idWrong);
 }

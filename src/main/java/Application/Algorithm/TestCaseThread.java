@@ -40,7 +40,7 @@ public class TestCaseThread   {
                 }
             }
             }catch (Exception e){
-                    e.printStackTrace();
+                    e.getMessage();
             }
         }
     }
