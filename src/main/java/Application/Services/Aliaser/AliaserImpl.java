@@ -1,5 +1,6 @@
 package Application.Services.Aliaser;
 
+import Application.Model.Alias;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +46,15 @@ public class AliaserImpl{
         }
     }
 
+    public ArrayList<Alias>getAliasesAsArrayList(){
+        ArrayList<Alias> toReturn = new ArrayList<>();
+        for (String word: aliases.keySet()){
+            String key = word;
+            String value = aliases.get(word);
+            toReturn.add(new Alias(key,value));
+        }
+        return toReturn;
+    }
     public AliaserImpl() {
     }
     public String getAliasedMessage(String text){
@@ -101,7 +111,7 @@ public class AliaserImpl{
         return first.equals(second);
     }
 
-    protected int getSimilarWordsAmount(String first, String second){
+    public int getSimilarWordsAmount(String first, String second){
 
         int similarWords=0;
         List<String> firstWordCollection = getSplitWordsAsList(first);
@@ -139,10 +149,11 @@ public class AliaserImpl{
         }
         return stringsToReturn;
     }
-    private String[] getSplitWords(String s){
+    public String[] getSplitWords(String s){
         String removedSpecialChars = removeSpecialCharacters(s);
         return removedSpecialChars.split(" ");
     }
+
     protected String removeSpecialCharacters(String s){
         return s.replaceAll("[-+.^:,()]","");
 

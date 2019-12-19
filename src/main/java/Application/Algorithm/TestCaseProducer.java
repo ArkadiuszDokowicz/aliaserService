@@ -1,7 +1,11 @@
 package Application.Algorithm;
 
+import Application.Model.Recipe;
 import Application.Model.TestCase;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 
 public class TestCaseProducer{
     private int dbSize;
@@ -11,9 +15,9 @@ public class TestCaseProducer{
         return testCases;
     }
 
-
     public TestCaseProducer(int dbSize) {
         this.dbSize = dbSize;
+        this.createPossiblyTestCases();
     }
 
     protected void createPossiblyTestCases(){

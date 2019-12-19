@@ -37,7 +37,7 @@ public class MainController {
     @GetMapping(value = "apiTest2", produces = "application/json")
     public Object testApi2() {
        RestTemplate restTemplate = new RestTemplate();
-        HttpEntity<Recipe> request = new HttpEntity<>(new Recipe("test","test",false));
+        HttpEntity<Recipe> request = new HttpEntity<>(new Recipe("test",false,"test"));
         Recipe recipe = restTemplate.postForObject("http://192.168.1.70:8080/recipes/body",request,Recipe.class);
         return request.getBody().toString();
     }

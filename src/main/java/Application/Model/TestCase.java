@@ -1,8 +1,14 @@
 package Application.Model;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyDescription;
 
+import java.io.Serializable;
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class TestCase implements Serializable {
+
+    @JsonProperty("id")
     private int id;
     private int leftId;
     private String leftAlias;
@@ -10,13 +16,23 @@ public class TestCase implements Serializable {
     private int rightId;
     private String rightAlias;
     private String rightDescription;
-    private int status =0;
+    private int status;
+
+    public TestCase(int id, int leftId, String leftAlias, String leftDescription, int rightId, String rightAlias, String rightDescription, int status) {
+        this.id = id;
+        this.leftId = leftId;
+        this.leftAlias = leftAlias;
+        this.leftDescription = leftDescription;
+        this.rightId = rightId;
+        this.rightAlias = rightAlias;
+        this.rightDescription = rightDescription;
+        this.status = status;
+    }
 
     public TestCase(int leftId, int rightId) {
         this.leftId = leftId;
         this.rightId = rightId;
     }
-
     public TestCase(int id, int leftId, String leftAlias, String leftDescription, int rightId, String rightAlias, String rightDescription) {
         this.id = id;
         this.leftId = leftId;
@@ -26,6 +42,17 @@ public class TestCase implements Serializable {
         this.rightAlias = rightAlias;
         this.rightDescription = rightDescription;
     }
+
+    public TestCase(int leftId, String leftAlias, String leftDescription, int rightId, String rightAlias, String rightDescription) {
+        this.leftId = leftId;
+        this.leftAlias = leftAlias;
+        this.leftDescription = leftDescription;
+        this.rightId = rightId;
+        this.rightAlias = rightAlias;
+        this.rightDescription = rightDescription;
+    }
+
+    public TestCase(){}
 
     public int getId() {
         return id;
